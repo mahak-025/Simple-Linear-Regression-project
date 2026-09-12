@@ -17,6 +17,7 @@ Pandas — data manipulation
 NumPy — numerical operations
 Seaborn & Matplotlib — data visualization
 Scikit-learn — model building & evaluation
+Streamlit - Frontend visualization
 🔍 Steps Followed
 Data Loading & Cleaning
 Handled missing/invalid values
@@ -34,11 +35,10 @@ Visualization of Results
 Plotted the regression line against actual data points
 📊 Results
 Metric	Value
-R² Score	(add your value)
-MSE	(add your value)
-📷 Sample Visualization
+R² Score-- 0.98
+MSE	-- 0.95
 
-(Add a screenshot of your regression plot here, e.g. ![Regression Plot](images/regression_plot.png))
+
 
 🚀 How to Run
 bash
@@ -53,6 +53,8 @@ pip install -r requirements.txt
 jupyter notebook simple_linear_regression.ipynb
 📁 Repository Structure
 ├── simple_linear_regression.ipynb
+├── frontend.py
+├──linear_regression_model.pkl
 ├── dataset.csv
 ├── requirements.txt
 └── README.md
