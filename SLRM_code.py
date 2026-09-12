@@ -2,6 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+
+from sklearn.metrics import mean_squared_error
+import pickle
+
 dataset = pd.read_csv(r"C:\Users\hii\python\simple linear eq\Salary_Data.csv")
 
 x = dataset.iloc[:, :-1]
@@ -35,3 +39,52 @@ print(c_intercept)
 
 y_20 = m_slope*20 + c_intercept
 print(y_20)
+
+
+bias = regressor.score(x_train, y_train)
+print(bias)
+variance = regressor.score(x_test, y_test)
+print(variance)
+train_mse = mean_squared_error(y_train, regressor.predict(x_train))
+test_mse = mean_squared_error(y_test, y_pred)
+
+
+print(f"Training Score (R^2):{bias:.2f}")
+print(f"Testing Score (R^2): {variance: .2f}")
+print(f"Training MSE: {train_mse:.2f} ")
+print(f"Test MSE: {test_mse: .2f}")
+
+#ANOVA
+y_mean = np.mean(y)
+SSR = np.sum((y_pred-y_mean)**2)
+print(SSR)
+
+y=y[0:6]
+SSE = np.sum((y- y_pred)**2)
+print(SSE)
+
+mean_total = np.mean(dataset.values)
+#here df.to_numpy() will convert pandas df to numpy
+SST = np.sum((dataset.values- mean_total)**2)
+print(SST)
+
+r_square = 1 - (SSR / SST)
+r_square
+
+print(r_square)
+print(bias)
+print(variance)
+
+
+import pickle
+
+filename = 'linear_regression_model.pkl'
+with open (filename,'wb') as file:
+    pickle.dump(regressor, file)
+    
+print("Model has been pickled and saves as linear_regression_model.pkl")
+
+
+import os 
+os.getcwd()
+
